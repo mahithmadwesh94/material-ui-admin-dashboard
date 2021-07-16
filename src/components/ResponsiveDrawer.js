@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Divider from '@material-ui/core/Divider';
@@ -25,7 +24,10 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import ChatBubbleIcon from '@material-ui/icons/ChatBubble';
 import ProfileIcon from './ProfileIcon';
 import HomePage from '../pages/HomePage';
-
+import Users from '../pages/Users';
+import Posts from '../pages/Posts';
+import { Switch, Route, NavLink } from 'react-router-dom';
+import editPage from '../pages/editPage';
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -75,6 +77,9 @@ const useStyles = makeStyles((theme) => ({
     },
     listHeader: {
         color: 'gray'
+    },
+    navLink: {
+        textDecoration: 'none'
     }
 }));
 
@@ -91,34 +96,35 @@ function ResponsiveDrawer(props) {
     const drawer = (
         <div>
             <List>
-                <ListItem className={classes.listItem}>
+                <NavLink className={classes.navLink} to="/"><ListItem className={classes.listItem}>
                     <SentimentVerySatisfiedIcon style={{ fontSize: 40 }} />
                     <Typography variant="h6" style={{ paddingLeft: '10px' }}>SB Admin 2</Typography>
                 </ListItem>
+                </NavLink>
             </List>
             <div />
             <Divider variant="middle" className={classes.divider} />
             <List>
-                <ListItem className={classes.listItem}>
+                <NavLink className={classes.navLink} to="/"><ListItem className={classes.listItem}>
                     <SpeedSharpIcon />
                     <ListItemText>Dashboard</ListItemText>
                     <ChevronRightIcon />
-                </ListItem>
+                </ListItem></NavLink>
                 <Divider variant="middle" className={classes.divider} />
 
-                <ListItem className={classes.listHeader}>
+                <NavLink to="/"><ListItem className={classes.listHeader}>
                     <Typography>INTERFACE</Typography>
-                </ListItem>
-                <ListItem className={classes.listItem}>
+                </ListItem></NavLink>
+                <NavLink className={classes.navLink} to="/users"><ListItem className={classes.listItem}>
                     <PeopleAltIcon />
                     <ListItemText>Users</ListItemText>
                     <ChevronRightIcon />
-                </ListItem>
-                <ListItem className={classes.listItem}>
+                </ListItem></NavLink>
+                <NavLink className={classes.navLink} to="/posts"><ListItem className={classes.listItem}>
                     <PostAddIcon />
                     <ListItemText>Posts</ListItemText>
                     <ChevronRightIcon />
-                </ListItem>
+                </ListItem></NavLink>
             </List>
             <Divider variant="middle" className={classes.divider} />
         </div>
@@ -144,7 +150,7 @@ function ResponsiveDrawer(props) {
                             </IconButton>
                             <SearchComponent />
                         </Grid>
-                        <Grid xs sm md lg xlg>
+                        <Grid item xs sm md lg >
                         </Grid>
                         <Grid item>
                             <Notification badgeNumber={3} badgeColor="primary" icon={<NotificationsIcon />} color="purple" title="Alerts" />
@@ -194,8 +200,18 @@ function ResponsiveDrawer(props) {
                 </Hidden>
             </nav>
             <main className={classes.content}>
+
                 <div className={classes.toolbar} />
-                <HomePage />
+
+                <Switch>
+                    <Route exact path='/' component={HomePage} />
+                    <Route path='/users' component={Users} />
+                    <Route path='/posts' component={Posts} />
+                    <Route path='/user/edit/:id' component={editPage} />
+                </Switch>
+                {/* <HomePage /> */}
+                {/*  <Users />*/}
+                {/* <Posts />*/}
 
             </main>
         </div>

@@ -1,4 +1,4 @@
-import { Card, CardHeader, CardContent, CardMedia, makeStyles, Grid } from '@material-ui/core'
+import { Card, CardHeader, makeStyles, Grid } from '@material-ui/core'
 import React from 'react';
 
 
@@ -29,7 +29,7 @@ export default function Statistics(props) {
     const classes = useStyles();
 
     return (
-        <>
+        <React.Fragment>
             <Card className={classes.root} style={{ borderLeft: `4px solid ${props.color}` }}>
                 <Grid container>
 
@@ -42,8 +42,8 @@ export default function Statistics(props) {
 
                                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', placeItems: 'stretch' }}>
                                     <CardHeader className={classes.textColor} title={props.heading} subheader={props.subHeading} />
-                                    <span className="progress" style={{ marginTop: '44px', marginLeft: '-68px' }}>                               <div class=" progress-bar w-50" role="progressbar" aria-valuenow={props.value} aria-valuemin="0" aria-valuemax="100"></div>
-
+                                    <span className="progress" style={{ marginTop: '44px', marginLeft: '-68px' }}>
+                                        <div className=" progress-bar w-50" role="progressbar" aria-valuenow={props.value} aria-valuemin="0" aria-valuemax="100"></div>
                                     </span>
                                 </div>
 
@@ -72,6 +72,6 @@ export default function Statistics(props) {
 
             </Card>
 
-        </>
+        </React.Fragment>
     )
 }

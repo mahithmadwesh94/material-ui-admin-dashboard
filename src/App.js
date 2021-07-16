@@ -1,6 +1,7 @@
 import './App.css';
 import React from 'react';
 import ResponsiveDrawer from './components/ResponsiveDrawer';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 
 
@@ -10,10 +11,11 @@ function App() {
 
 
   return (
-    <div >
-
-      <ResponsiveDrawer />
-    </div>
+    <Router>
+      <div>
+        <ResponsiveDrawer />
+      </div>
+    </Router>
   );
 }
 

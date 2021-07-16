@@ -58,9 +58,9 @@ export default function ProfileIcon(props) {
                                                     <ListItemText primary="Profile" />
                                                 </ListItem>
 
-                                                <ListItem divider className={classes.listItem}>
+                                                {/*<ListItem divider className={classes.listItem}>
                                                     <ListItemText primary="Settings" />
-                                                </ListItem>
+                                                </ListItem> */}
 
                                                 <ListItem divider className={classes.listItem}>
                                                     <ListItemText primary="Log out" />

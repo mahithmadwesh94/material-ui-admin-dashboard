@@ -35,7 +35,7 @@ export default function SearchComponent() {
     }
 
     return (
-        <>
+        <React.Fragment>
             <Hidden xsDown>
                 <InputBase className={classes.searchInput} placeholder="Search for" endAdornment={<Button size="small" className={classes.buttonIcon} variant="contained">
                     <SearchIcon />
@@ -66,6 +66,6 @@ export default function SearchComponent() {
                 </Popover>
             </Hidden>
 
-        </>
+        </React.Fragment>
     )
 }

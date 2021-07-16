@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Typography, Card, CardHeader, makeStyles } from '@material-ui/core'
+import { Grid, Typography } from '@material-ui/core'
 import Statistics from '../components/Statistics';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
@@ -7,19 +7,15 @@ import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn';
 import QuestionAnswerRoundedIcon from '@material-ui/icons/QuestionAnswerRounded';
 import { Line, Doughnut } from 'react-chartjs-2';
 
-const useStyles = makeStyles(theme => ({
-    '.MuiCardHeader-title': {
-        color: 'red'
-    }
-}))
+
 
 
 export default function HomePage() {
 
-    const classes = useStyles();
+
 
     return (
-        <>
+        <React.Fragment>
             <Typography variant="h3">Dashboard</Typography>
             <Grid container alignItems="center" alignContent="center">
 
@@ -42,7 +38,7 @@ export default function HomePage() {
 
 
             <Grid container alignItems="center" alignContent="center">
-                <Grid xs={12} sm={6} md={6} lg={6} style={{ padding: '10px' }}>
+                <Grid item xs={12} sm={6} md={6} lg={6} style={{ padding: '10px' }}>
                     <div className="card">
                         <div className="card-header" style={{ color: '#4e73df' }}>
                             <b>Earnings Overview</b>
@@ -77,7 +73,7 @@ export default function HomePage() {
                     </div>
                 </Grid>
 
-                <Grid xs={12} sm={6} md={6} lg={6} style={{ padding: '10px' }}>
+                <Grid item xs={12} sm={6} md={6} lg={6} style={{ padding: '10px' }}>
                     <div className="card"  >
                         <div className="card-header" style={{ color: '#4e73df' }}>
                             <b>Revenue Sources</b>
@@ -118,6 +114,6 @@ export default function HomePage() {
 
             </Grid>
 
-        </>
+        </React.Fragment>
     )
 }
